@@ -14,15 +14,14 @@ public class InsertionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) 
 	{	
-		int indexSwap = 0;
 		for (int i = leftIndex + 1; i < rightIndex + 1; i++)
 		{
-			for (int j = i; j > 0; j--)
+			while (i != 0 && array[i].compareTo(array[i - 1]) < 0)
 			{
-				if (array[j].compareTo(array[j - 1]) < 0) { Util.swap(array, j - 1, j); }
+				Util.swap(array, i - 1, i);
+				i--;
 			}
-			
+			leftIndex++;
 		}
-		throw new UnsupportedOperationException("Not Implemented yet!");
 	}
 }

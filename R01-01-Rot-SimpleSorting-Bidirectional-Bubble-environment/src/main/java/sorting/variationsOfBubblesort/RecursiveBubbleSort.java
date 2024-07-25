@@ -16,6 +16,16 @@ public class RecursiveBubbleSort<T extends Comparable<T>> extends
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
 		// TODO Auto-generated method stub
+		//Caso Base - Não houve trocas
+		boolean haveSwap = true;
+
+		if (!haveSwap) {}
+		else
+		{
+			
+		}
+
+
 		throw new UnsupportedOperationException("Not Implemented yet!");
 	}
 
