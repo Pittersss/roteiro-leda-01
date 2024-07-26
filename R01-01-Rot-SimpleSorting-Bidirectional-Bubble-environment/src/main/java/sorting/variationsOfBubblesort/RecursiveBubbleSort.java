@@ -1,6 +1,7 @@
 package sorting.variationsOfBubblesort;
 
 import sorting.AbstractSorting;
+import util.Util;
 
 public class RecursiveBubbleSort<T extends Comparable<T>> extends
 		AbstractSorting<T> {
@@ -22,11 +23,33 @@ public class RecursiveBubbleSort<T extends Comparable<T>> extends
 		if (!haveSwap) {}
 		else
 		{
+			haveSwap = passByArrayRecursive(array, leftIndex, rightIndex);
+		}
+
+	}
+
+	private boolean passByArrayRecursive(T[] array ,int leftIndex, int rightIndex)
+	{
+		boolean haveSwap = false;
+		boolean trocaFutura = false;
+		if (leftIndex == rightIndex)
+		{}
+		else
+		{
+			if (array[leftIndex].compareTo(array[leftIndex + 1]) > 0)
+			{
+				Util.swap(array, leftIndex, leftIndex + 1);
+				haveSwap = true;
+			}
+
+			if (trocaFutura || haveSwap) { haveSwap = true; }
+			
+			passByArrayRecursive(array, leftIndex + 1, rightIndex);
 			
 		}
 
+		return haveSwap;
 
-		throw new UnsupportedOperationException("Not Implemented yet!");
 	}
 
 }

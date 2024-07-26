@@ -1,7 +1,5 @@
 package sorting.simpleSorting;
 
-import javax.rmi.CORBA.Util;
-
 import sorting.AbstractSorting;
 
 /**

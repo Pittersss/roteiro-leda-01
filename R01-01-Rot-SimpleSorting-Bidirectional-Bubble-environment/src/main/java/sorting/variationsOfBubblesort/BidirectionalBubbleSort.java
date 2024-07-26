@@ -20,7 +20,7 @@ public class BidirectionalBubbleSort<T extends Comparable<T>> extends
 		while (haveSwap) 
 		{
 			haveSwap = false;
-			for (int i = leftIndex; i < rightIndex + 1; i++)
+			for (int i = leftIndex ; i < rightIndex ; i++)
 			{
 				if ( i != array.length - 1 && array[i].compareTo(array[i + 1]) > 0) 
 				{ 
@@ -31,7 +31,7 @@ public class BidirectionalBubbleSort<T extends Comparable<T>> extends
 
 			for (int j = rightIndex; j > leftIndex ; j--)
 			{
-				if (j != array.length - 1 && array[j].compareTo(array[j - 1]) < 0)
+				if (array[j].compareTo(array[j - 1]) < 0)
 				{
 					util.Util.swap(array, j - 1, j);
 					haveSwap = true;
