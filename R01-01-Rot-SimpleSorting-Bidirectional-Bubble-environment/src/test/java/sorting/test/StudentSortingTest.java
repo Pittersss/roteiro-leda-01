@@ -12,6 +12,7 @@ import sorting.simpleSorting.InsertionSort;
 import sorting.simpleSorting.SelectionSort;
 import sorting.variationsOfBubblesort.BidirectionalBubbleSort;
 import sorting.variationsOfBubblesort.RecursiveBubbleSort;
+import sorting.variationsOfSelectionsort.RecursiveSelectionSort;
 
 public class StudentSortingTest {
 
@@ -144,6 +145,17 @@ public class StudentSortingTest {
 		Integer[] arrayBase = {0,1,2,3,7};
 
 		InsertionSort<Integer> i = new InsertionSort<Integer>();
+		i.sort(array, 0, 4);
+
+		Assert.assertEquals(array, arrayBase);
+	}
+
+	@Test
+	public void testSelectionSortRecursivo() {
+		Integer[] array = {2,0,3,7,1};
+		Integer[] arrayBase = {0,1,2,3,7};
+
+		RecursiveSelectionSort<Integer> i = new RecursiveSelectionSort<Integer>();
 		i.sort(array, 0, 4);
 
 		Assert.assertEquals(array, arrayBase);

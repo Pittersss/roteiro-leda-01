@@ -23,7 +23,11 @@ public class RecursiveBubbleSort<T extends Comparable<T>> extends
 		if (!haveSwap) {}
 		else
 		{
-			haveSwap = passByArrayRecursive(array, leftIndex, rightIndex);
+			if(passByArrayRecursive(array, leftIndex, rightIndex))
+				sort(array, leftIndex, rightIndex);
+			else{
+				haveSwap = false;
+			}
 		}
 
 	}
@@ -42,12 +46,13 @@ public class RecursiveBubbleSort<T extends Comparable<T>> extends
 				haveSwap = true;
 			}
 
-			if (trocaFutura || haveSwap) { haveSwap = true; }
+			trocaFutura = passByArrayRecursive(array, leftIndex + 1, rightIndex);
 			
-			passByArrayRecursive(array, leftIndex + 1, rightIndex);
 			
 		}
 
+		if (trocaFutura)
+			haveSwap = trocaFutura;
 		return haveSwap;
 
 	}
