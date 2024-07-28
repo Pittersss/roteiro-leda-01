@@ -16,8 +16,12 @@ public class RecursiveSelectionSort<T extends Comparable<T>> extends
 	 */
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		// TODO Auto-generated method stub
-		int smallerIndex = 0;
+
+		if (leftIndex < 0 || rightIndex < 0)
+			throw new IllegalArgumentException("Invalid Index");
+
+		int smallerIndex = leftIndex;
+
 		if (leftIndex == rightIndex)
 		{}
 		else{
@@ -33,12 +37,15 @@ public class RecursiveSelectionSort<T extends Comparable<T>> extends
 	public int catchIndexSmallerIndexElement(T[] array, int leftIndex, int rightIndex)
 	{
 		int smallerIndex = leftIndex;
-		int futureSmaller = 0;
-		if (leftIndex == rightIndex)
-		{}
+		int futureSmaller = leftIndex;
+		if (leftIndex == rightIndex + 1)
+		{
+			smallerIndex = rightIndex;
+			futureSmaller = rightIndex;
+		}
 		else
 		{
-			if (array[leftIndex + 1].compareTo(array[smallerIndex]) < 0) 
+			if (array[leftIndex].compareTo(array[smallerIndex]) < 0) 
 			{ 
 				smallerIndex = leftIndex + 1; //erro 
 			}
