@@ -91,6 +91,7 @@ public class StudentSortingTest {
 		Assert.assertArrayEquals(copy1, array);
 	}
 
+
 	@Test
 	public void testBubbleSortArrayTamPar() 
 	{
@@ -156,56 +157,15 @@ public class StudentSortingTest {
 	}
 
 	@Test
-	public void testBubbleSortInvalidRightIndex() 
-	{
-		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
-
-		BubbleSort<Integer> bubbleSort = new BubbleSort<Integer>();
-		try{
-			bubbleSort.sort(vetorOrdCrescente, 0, 5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
-
-	}
-
-	@Test
-	public void testBubbleSortInvalidLeftIndex() 
-	{
-		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
-
-		BubbleSort<Integer> bubbleSort = new BubbleSort<Integer>();
-		try{
-			bubbleSort.sort(vetorOrdCrescente, 1, 4);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
-
-	}
-
-	@Test
 	public void testBubbleSortRightIndexNegativo() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
+		Integer[] arrayElemsIguaisOrd = vetorTamPar.clone(); 
 
 		BubbleSort<Integer> bubbleSort = new BubbleSort<Integer>();
-		try{
-			bubbleSort.sort(vetorOrdCrescente, -1, 5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
+		bubbleSort.sort(vetorTamPar, -10, -1);
+
+		assertArrayEquals(vetorTamPar, arrayElemsIguaisOrd);
 
 	}
 
@@ -213,17 +173,12 @@ public class StudentSortingTest {
 	public void testBubbleSortLeftIndexNegativo() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
+		Integer[] arrayElemsIguaisOrd = vetorTamPar.clone(); 
 
 		BubbleSort<Integer> bubbleSort = new BubbleSort<Integer>();
-		try{
-			bubbleSort.sort(vetorOrdCrescente, 0, -5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
+		bubbleSort.sort(vetorTamPar, -1, vetorTamPar.length - 1);
+
+		assertArrayEquals(vetorTamPar, arrayElemsIguaisOrd);
 
 	}
 
@@ -290,77 +245,31 @@ public class StudentSortingTest {
 	}
 
 	@Test
-	public void testBubbleSortRecursivoInvalidRightIndex() 
-	{
-		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
-
-		RecursiveBubbleSort<Integer> recursiveBubbleSort = new RecursiveBubbleSort<Integer>();
-		try{
-			recursiveBubbleSort.sort(vetorOrdCrescente, 0, 5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
-
-	}
-
-	@Test
-	public void testBubbleSortRecursivoInvalidLeftIndex() 
-	{
-		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
-
-		RecursiveBubbleSort<Integer> recursiveBubbleSort = new RecursiveBubbleSort<Integer>();
-		try{
-			recursiveBubbleSort.sort(vetorOrdCrescente, 1, 4);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
-
-	}
-	
-
-	@Test
 	public void testBubbleSortRecursivoRightIndexNegativo() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
+		Integer[] arrayElemsIguaisOrd = vetorTamPar.clone(); 
 
 		RecursiveBubbleSort<Integer> recursiveBubbleSort = new RecursiveBubbleSort<Integer>();
-		try{
-			recursiveBubbleSort.sort(vetorOrdCrescente, -1, 5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
+		recursiveBubbleSort.sort(vetorTamPar, -20, -10);
 
+		assertArrayEquals(vetorTamPar, arrayElemsIguaisOrd);
 	}
 
 	@Test
 	public void testBubbleSortRecursivoLeftIndexNegativo() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
+		Integer[] arrayElemsIguaisOrd = vetorTamPar.clone(); 
 
 		RecursiveBubbleSort<Integer> recursiveBubbleSort = new RecursiveBubbleSort<Integer>();
-		try{
-			recursiveBubbleSort.sort(vetorOrdCrescente, 0, -5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
+		recursiveBubbleSort.sort(vetorTamPar, -1, vetorTamPar.length - 1);
+
+		assertArrayEquals(vetorTamPar, arrayElemsIguaisOrd);
 
 	}
+
+	//BidirecionaBubbleSort
 
 	@Test
 	public void testBubbleSortBidirecionalTamPar() 
@@ -426,56 +335,14 @@ public class StudentSortingTest {
 	}
 
 	@Test
-	public void testBubbleSortBidirecionalInvalidRightIndex() 
-	{
-		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
-
-		BidirectionalBubbleSort<Integer> bidirecionalBubbleSort = new BidirectionalBubbleSort<Integer>();
-		try{
-			bidirecionalBubbleSort.sort(vetorOrdCrescente, 0, 5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
-
-	}
-
-	@Test
-	public void testBubbleSortBidirecionalInvalidLeftIndex() 
-	{
-		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
-
-		BidirectionalBubbleSort<Integer> bidirecionalBubbleSort = new BidirectionalBubbleSort<Integer>();
-		try{
-			bidirecionalBubbleSort.sort(vetorOrdCrescente, 1, 4);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
-
-	}
-
-	@Test
 	public void testBubbleSortBidirecionalLeftIndexNegativo() 
 	{
-		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
+		Integer[] arrayOrd = vetorTamPar.clone();
 
 		BidirectionalBubbleSort<Integer> bidirecionalBubbleSort = new BidirectionalBubbleSort<Integer>();
-		try{
-			bidirecionalBubbleSort.sort(vetorOrdCrescente, -1, 5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
+		bidirecionalBubbleSort.sort(vetorTamPar, -1, vetorTamPar.length - 1);
+
+		assertArrayEquals(arrayOrd, vetorTamPar);
 
 	}
 
@@ -483,20 +350,76 @@ public class StudentSortingTest {
 	public void testBubbleSortBidirecionalRightIndexNegativo() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
+		Integer[] arrayOrd = vetorTamPar.clone();
 
 		BidirectionalBubbleSort<Integer> bidirecionalBubbleSort = new BidirectionalBubbleSort<Integer>();
-		try{
-			bidirecionalBubbleSort.sort(vetorOrdCrescente, 0, -5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
+		bidirecionalBubbleSort.sort(vetorTamPar, -20, -1);
+
+		assertArrayEquals(arrayOrd, vetorTamPar);
 
 	}
 
+	@Test
+	public void testBubbleSortBidirecionalSegundaMetadeArrayImpar()
+	{
+		// vetorTamImpar = new Integer[] {30, 28, 7, 29, 11**, 26, 4, 22, 23};
+		int middleIndex = (vetorTamImpar.length/2);
+		Integer[] arrayOrdenado = {30, 28, 7, 29, 4, 11, 22, 23, 26};
+		
+		BidirectionalBubbleSort<Integer> bidirectionalBubbleSort = new BidirectionalBubbleSort<Integer>();
+
+		bidirectionalBubbleSort.sort(vetorTamImpar, middleIndex,  vetorTamImpar.length - 1);
+		
+		
+		assertArrayEquals(vetorTamImpar, arrayOrdenado);
+	}
+
+	@Test
+	public void testBubbleSortBidirecionalPrimeiraMetadeArrayImpar()
+	{
+		// vetorTamImpar = new Integer[] {30, 28, 7, 29, 11**, 26, 4, 22, 23};
+		int middleIndex = (vetorTamImpar.length/2);
+		Integer[] arrayOrdenado = {7, 11, 28, 29, 30, 26 , 4 , 22, 23};
+		
+		BidirectionalBubbleSort<Integer> bidirectionalBubbleSort = new BidirectionalBubbleSort<Integer>();
+
+		bidirectionalBubbleSort.sort(vetorTamImpar, 0,  middleIndex);
+		
+		
+		assertArrayEquals(vetorTamImpar, arrayOrdenado);
+	}
+	@Test
+	public void testBubbleSortBidirecionalPrimeiraMetadeArrayPar()
+	{
+		// vetorTamPar = new Integer[] {30, 28, 7, 29, 11, 26 **, 4, 22, 23, 31};
+		int middleIndex = (vetorTamPar.length/2);
+		Integer[] arrayOrdenado = {7, 11, 26, 28, 29, 30, 4, 22, 23, 31};
+		
+		BidirectionalBubbleSort<Integer> bidirectionalBubbleSort = new BidirectionalBubbleSort<Integer>();
+
+		bidirectionalBubbleSort.sort(vetorTamPar, 0,  middleIndex);
+		
+		//Se forem iguais nada foi feito
+		assertArrayEquals(vetorTamPar, arrayOrdenado);
+	}
+
+	@Test
+	public void testBubbleSortBidirecionalSegundaMetadeArrayPar()
+	{
+		// vetorTamPar = new Integer[] {30, 28, 7, 29, 11, 26 **, 4, 22, 23, 31};
+		int middleIndex = (vetorTamPar.length/2);
+		Integer[] arrayOrdenado = {30, 28, 7, 29, 11, 4, 22, 23, 26, 31};
+		
+		BidirectionalBubbleSort<Integer> bidirectionalBubbleSort = new BidirectionalBubbleSort<Integer>();
+
+		bidirectionalBubbleSort.sort(vetorTamPar, middleIndex,  vetorTamPar.length - 1);
+		
+		//Se forem iguais nada foi feito
+		assertArrayEquals(vetorTamPar, arrayOrdenado);
+	}
+
+	// Insertion Sort
+	
 	@Test
 	public void testInsertionSortArrayTamPar() 
 	{
@@ -565,57 +488,94 @@ public class StudentSortingTest {
 	public void testInsertionSortInvalidRightIndex() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
+		Integer[] array = vetorTamPar.clone();
 
 		InsertionSort<Integer> insertionSort = new InsertionSort<Integer>();
-		try{
-			insertionSort.sort(vetorOrdCrescente, 0, 5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
+		insertionSort.sort(array, -20, -10);
+
+		//Provando que vetorTampar não foi modificado
+		assertArrayEquals(array, vetorTamPar);
 
 	}
 
 	@Test
-	public void testInsertionSortInvalidLeftIndex() 
+	public void testInsertionSortNegativoLeftIndex() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
+		Integer[] array = vetorTamPar.clone();
 
 		InsertionSort<Integer> insertionSort = new InsertionSort<Integer>();
-		try{
-			insertionSort.sort(vetorOrdCrescente, 1, 4);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
+		insertionSort.sort(array, -1, vetorTamPar.length - 1);
+
+		//Provando que vetorTampar não foi modificado
+		assertArrayEquals(array, vetorTamPar);
 	}
 
 	@Test
-	public void testInsertionSortRightIndexNegativo() 
+	public void testInsertionSortSegundaMetadeArrayImpar()
 	{
-		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
+		// vetorTamImpar = new Integer[] {30, 28, 7, 29, 11**, 26, 4, 22, 23};
+		int middleIndex = (vetorTamImpar.length/2);
+		Integer[] arrayOrdenado = {30, 28, 7, 29, 4, 11, 22, 23, 26};
+		
+		InsertionSort<Integer> insertionSort = new InsertionSort<Integer>();
 
-		RecursiveBubbleSort<Integer> recursiveBubbleSort = new RecursiveBubbleSort<Integer>();
-		try{
-			recursiveBubbleSort.sort(vetorOrdCrescente, -1, 5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
-
+		insertionSort.sort(vetorTamImpar, middleIndex,  vetorTamImpar.length - 1);
+		
+		
+		assertArrayEquals(vetorTamImpar, arrayOrdenado);
 	}
 
 	@Test
-	public void testInsertionSortRecursivoArrayTamPar() 
+	public void testInsertionSortPrimeiraMetadeArrayImpar()
+	{
+		// vetorTamImpar = new Integer[] {30, 28, 7, 29, 11**, 26, 4, 22, 23};
+		int middleIndex = (vetorTamImpar.length/2);
+		Integer[] arrayOrdenado = {7, 11, 28, 29, 30, 26 , 4 , 22, 23};
+		
+		InsertionSort<Integer> insertionSort = new InsertionSort<Integer>();
+
+		insertionSort.sort(vetorTamImpar, 0,  middleIndex);
+		
+		
+		assertArrayEquals(vetorTamImpar, arrayOrdenado);
+	}
+	@Test
+	public void testInsertionSortPrimeiraMetadeArrayPar()
+	{
+		// vetorTamPar = new Integer[] {30, 28, 7, 29, 11, 26 **, 4, 22, 23, 31};
+		int middleIndex = (vetorTamPar.length/2);
+		Integer[] arrayOrdenado = {7, 11, 26, 28, 29, 30, 4, 22, 23, 31};
+		
+		InsertionSort<Integer> insertionSort = new InsertionSort<Integer>();
+
+		insertionSort.sort(vetorTamPar, 0,  middleIndex);
+		
+		//Se forem iguais nada foi feito
+		assertArrayEquals(vetorTamPar, arrayOrdenado);
+	}
+
+	@Test
+	public void testInsertionSortSegundaMetadeArrayPar()
+	{
+		// vetorTamPar = new Integer[] {30, 28, 7, 29, 11, ** 26, 4, 22, 23, 31};
+		int middleIndex = (vetorTamPar.length/2);
+		Integer[] arrayOrdenado = {30, 28, 7, 29, 11, 4, 22, 23, 26, 31};
+		
+		InsertionSort<Integer> insertionSort = new InsertionSort<Integer>();
+
+		insertionSort.sort(vetorTamPar, middleIndex,  vetorTamPar.length - 1);
+		
+		//Se forem iguais nada foi feito
+		assertArrayEquals(vetorTamPar, arrayOrdenado);
+	}
+
+
+
+	//Selection Recursivo
+
+	@Test
+	public void testSelectionSortRecursivoArrayTamPar() 
 	{
 		Integer[] arrayOrdenadoTamPar = {4, 7, 11, 22, 23, 26, 28, 29, 30, 31}; 
 
@@ -627,7 +587,7 @@ public class StudentSortingTest {
 	}
 
 	@Test
-	public void testInsertionSortRecursivoArrayTamImpar() 
+	public void testSelectionSortRecursivoArrayTamImpar() 
 	{
 		//30, 28, 7, 29, 11, 26, 4, 22, 23
 		Integer[] arrayOrdenadoTamImpar = {4, 7, 11, 22, 23, 26, 28, 29, 30}; 
@@ -640,7 +600,7 @@ public class StudentSortingTest {
 	}
 
 	@Test
-	public void testInsertionSortRecursivoArrayValoresRepetidos() 
+	public void testSelectionSortRecursivoArrayValoresRepetidos() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
 		Integer[] arrayElemsRepOrd = {4, 4, 7, 7, 11, 22, 23, 28, 29}; 
@@ -653,7 +613,7 @@ public class StudentSortingTest {
 	}
 
 	@Test
-	public void testInsertionSortRecursivoElementosIguais() 
+	public void testSelectionSortRecursivoElementosIguais() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
 		Integer[] arrayElemsIguaisOrd = {7, 7, 7, 7, 7, 7}; 
@@ -666,7 +626,7 @@ public class StudentSortingTest {
 	}
 
 	@Test
-	public void testInsertionSortRecursivoArrayCrec() 
+	public void testSelectionSortRecursivoArrayCrec() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
 		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
@@ -678,44 +638,85 @@ public class StudentSortingTest {
 		assertArrayEquals(vetorOrdCrescente, arrayElemsIguaisOrd);
 	}
 
+
 	@Test
-	public void testInsertionSortRecursivoRightIndexNegativo() 
+	public void testSelectionSortRecursivoSegundaMetadeArrayImpar()
 	{
-		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
+		// vetorTamImpar = new Integer[] {30, 28, 7, 29, 11**, 26, 4, 22, 23};
+		int middleIndex = (vetorTamImpar.length/2);
+		Integer[] arrayOrdenado = {30, 28, 7, 29, 4, 11, 22, 23, 26};
+		
+		RecursiveSelectionSort<Integer> selectionSort = new RecursiveSelectionSort<Integer>();
 
-		InsertionSort<Integer> insertionSort = new InsertionSort<Integer>();
-		try{
-			insertionSort.sort(vetorOrdCrescente, -1, 5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
-
+		selectionSort.sort(vetorTamImpar, middleIndex,  vetorTamImpar.length - 1);
+		
+		
+		assertArrayEquals(vetorTamImpar, arrayOrdenado);
 	}
 
 	@Test
-	public void testInsertionSortRecursivoLeftIndexNegativo() 
+	public void testSelectionSortRecursivoPrimeiraMetadeArrayImpar()
 	{
-		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
+		// vetorTamImpar = new Integer[] {30, 28, 7, 29, 11**, 26, 4, 22, 23};
+		int middleIndex = (vetorTamImpar.length/2);
+		Integer[] arrayOrdenado = {7, 11, 28, 29, 30, 26 , 4 , 22, 23};
+		
+		RecursiveSelectionSort<Integer> selectionSort = new RecursiveSelectionSort<Integer>();
 
+		selectionSort.sort(vetorTamImpar, 0,  middleIndex);
+		
+		
+		assertArrayEquals(vetorTamImpar, arrayOrdenado);
+	}
+	@Test
+	public void testSelectionSortRecursivoPrimeiraMetadeArrayPar()
+	{
+		// vetorTamPar = new Integer[] {30, 28, 7, 29, 11, 26 **, 4, 22, 23, 31};
+		int middleIndex = (vetorTamPar.length/2);
+		Integer[] arrayOrdenado = {7, 11, 26, 28, 29, 30, 4, 22, 23, 31};
+		
+		RecursiveSelectionSort<Integer> selectionSort = new RecursiveSelectionSort<Integer>();
+
+		selectionSort.sort(vetorTamPar, 0,  middleIndex);
+		
+		//Se forem iguais nada foi feito
+		assertArrayEquals(vetorTamPar, arrayOrdenado);
+	}
+
+	@Test
+	public void testSelectionSortRecursivoSegundaMetadeArrayPar()
+	{
+		// vetorTamPar = new Integer[] {30, 28, 7, 29, 11, ** 26, 4, 22, 23, 31};
+		int middleIndex = (vetorTamPar.length/2);
+		Integer[] arrayOrdenado = {30, 28, 7, 29, 11, 4, 22, 23, 26, 31};
+		
+		RecursiveSelectionSort<Integer> selectionSort = new RecursiveSelectionSort<Integer>();
+
+		selectionSort.sort(vetorTamPar, middleIndex,  vetorTamPar.length - 1);
+		
+		//Se forem iguais nada foi feito
+		assertArrayEquals(vetorTamPar, arrayOrdenado);
+	}
+
+
+	@Test
+	public void testSelectionSortRecursivoRightIndexNegativo() 
+	{
+		Integer[] arrayOrdenado = vetorTamPar.clone();
 		InsertionSort<Integer> insertionSort = new InsertionSort<Integer>();
-		try{
-			insertionSort.sort(vetorOrdCrescente, 0, -5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
+		insertionSort.sort(arrayOrdenado, -20, -10);
+
+		//Não houve mudança, pois a entrada é inválida de alguma forma
+		assertArrayEquals(vetorTamPar, arrayOrdenado);
 
 	}
-	
+
+
+	//SelectionSort
+
+
 	@Test
-	public void testSelectionSortRecursivoArrayTamPar() 
+	public void testSelectionSortArrayTamPar() 
 	{
 		Integer[] arrayOrdenadoTamPar = {4, 7, 11, 22, 23, 26, 28, 29, 30, 31}; 
 
@@ -779,38 +780,101 @@ public class StudentSortingTest {
 	}
 
 	@Test
+	public void testSelectionSortSegundaMetadeArrayImpar()
+	{
+		// vetorTamImpar = new Integer[] {30, 28, 7, 29, 11**, 26, 4, 22, 23};
+		int middleIndex = (vetorTamImpar.length/2);
+		Integer[] arrayOrdenado = {30, 28, 7, 29, 4, 11, 22, 23, 26};
+		
+		SelectionSort<Integer> selectionSort = new SelectionSort<Integer>();
+
+		selectionSort.sort(vetorTamImpar, middleIndex,  vetorTamImpar.length - 1);
+		
+		
+		assertArrayEquals(vetorTamImpar, arrayOrdenado);
+	}
+
+	@Test
+	public void testSelectionSortPrimeiraMetadeArrayImpar()
+	{
+		// vetorTamImpar = new Integer[] {30, 28, 7, 29, 11**, 26, 4, 22, 23};
+		int middleIndex = (vetorTamImpar.length/2);
+		Integer[] arrayOrdenado = {7, 11, 28, 29, 30, 26 , 4 , 22, 23};
+		
+		SelectionSort<Integer> selectionSort = new SelectionSort<Integer>();
+
+		selectionSort.sort(vetorTamImpar, 0,  middleIndex);
+		
+		
+		assertArrayEquals(vetorTamImpar, arrayOrdenado);
+	}
+
+	@Test
+	public void testSelectionSortPrimeiraMetadeArrayPar()
+	{
+		// vetorTamPar = new Integer[] {30, 28, 7, 29, 11, 26 **, 4, 22, 23, 31};
+		int middleIndex = (vetorTamPar.length/2);
+		Integer[] arrayOrdenado = {7, 11, 26, 28, 29, 30, 4, 22, 23, 31};
+		
+		SelectionSort<Integer> selectionSort = new SelectionSort<Integer>();
+
+		selectionSort.sort(vetorTamPar, 0,  middleIndex);
+		
+		
+		assertArrayEquals(vetorTamPar, arrayOrdenado);
+	}
+	@Test
+	public void testSelectionSortSegundaMetadeArrayPar()
+	{
+		// vetorTamPar = new Integer[] {30, 28, 7, 29, 11, ** 26, 4, 22, 23, 31};
+		int middleIndex = (vetorTamPar.length/2);
+		Integer[] arrayOrdenado = {30, 28, 7, 29, 11, 4, 22, 23, 26, 31};
+		
+		SelectionSort<Integer> selectionSort = new SelectionSort<Integer>();
+
+		selectionSort.sort(vetorTamPar, middleIndex,  vetorTamPar.length - 1);
+		
+		//Se forem iguais nada foi feito
+		assertArrayEquals(vetorTamPar, arrayOrdenado);
+	}
+	@Test 
+	public void testSelectionSortLeftMaiorRight()
+	{
+		//4, 28, 7, 29, 11, 7, 4, 22, 23
+		Integer[] arrayElemsIguaisOrd = vetorTamPar.clone();
+		
+		SelectionSort<Integer> selectionSort = new SelectionSort<Integer>();
+
+		selectionSort.sort(arrayElemsIguaisOrd, arrayElemsIguaisOrd.length,  0);
+		
+		//Se forem iguais nada foi feito
+		assertArrayEquals(arrayElemsIguaisOrd, vetorTamPar);
+	}
+	@Test
 	public void testSelectionSortRightIndexNegativo() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
-
+		Integer[] arrayElemsIguaisOrd = vetorTamPar.clone();
+		
 		SelectionSort<Integer> selectionSort = new SelectionSort<Integer>();
-		try{
-			selectionSort.sort(vetorOrdCrescente, 0, -5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
 
+		selectionSort.sort(arrayElemsIguaisOrd, 0,  -1);
+		
+		//Se forem iguais nada foi feito
+		assertArrayEquals(arrayElemsIguaisOrd, vetorTamPar);
+		
 	}
 
 	@Test
 	public void testSelectionSortLeftIndexNegativo() 
 	{
 		//4, 28, 7, 29, 11, 7, 4, 22, 23
-		Integer[] arrayElemsIguaisOrd = {6 , 7 , 8 , 9 , 10}; 
-
+		Integer[] arrayElemsIguaisOrd = vetorTamPar.clone();
 		SelectionSort<Integer> selectionSort = new SelectionSort<Integer>();
-		try{
-			selectionSort.sort(vetorOrdCrescente, -1, 5);
-			Assert.fail("Espera-se um erro aqui");
-		}
-		catch (IllegalArgumentException iae)
-		{
-			assert (iae.getMessage() == "Invalid Index");
-		}
+		selectionSort.sort(arrayElemsIguaisOrd, -1,  arrayElemsIguaisOrd.length - 1);
+		
+		//Se forem iguais nada foi feito
+		assertArrayEquals(arrayElemsIguaisOrd, vetorTamPar);
 
 	}
 
